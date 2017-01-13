@@ -26,8 +26,8 @@ final class SwiftyFormatTests: XCTestCase {
    }
 
    func testAttributedMapping() {
-      let name = NSAttributedString(string: "Jack", attributes: [NSForegroundColorAttributeName: UIColor.redColor()])
-      let cookies = NSAttributedString(string: "100", attributes: [NSForegroundColorAttributeName: UIColor.blueColor()])
+      let name = NSAttributedString(string: "Jack", attributes: [NSUnderlineStyleAttributeName: 1])
+      let cookies = NSAttributedString(string: "100", attributes: [NSUnderlineStyleAttributeName: 1])
       let result = NSAttributedString(format: self.format) { key in
          switch key {
          case "name":
@@ -41,11 +41,11 @@ final class SwiftyFormatTests: XCTestCase {
       }
 
       let expected = NSMutableAttributedString(string: "Hello ")
-      expected.appendAttributedString(name)
-      expected.appendAttributedString(NSAttributedString(string: ", I have "))
-      expected.appendAttributedString(cookies)
-      expected.appendAttributedString(NSAttributedString(string: " cookies for you. Bye "))
-      expected.appendAttributedString(name)
+      expected.append(name)
+      expected.append(NSAttributedString(string: ", I have "))
+      expected.append(cookies)
+      expected.append(NSAttributedString(string: " cookies for you. Bye "))
+      expected.append(name)
 
       expect(result) == expected
    }
@@ -108,20 +108,21 @@ final class SwiftyFormatTests: XCTestCase {
       expect(String(format: self.format, mapping: [:])) ==  "Hello Mr(s), I have several cookies for you. Bye "
    }
 
+#if !SWIFT_PACKAGE //UIColor, and UIFont are not cross platform
    func testAttributes() {
       let greetingFormat = "Hello #{{name}}"
 
-      let nameAttributes: [String: AnyObject] = [
-         NSFontAttributeName: UIFont.boldSystemFontOfSize(12),
-         NSForegroundColorAttributeName: UIColor.redColor()
+      let nameAttributes: [String: Any] = [
+         NSFontAttributeName: UIFont.boldSystemFont(ofSize: 12),
+         NSForegroundColorAttributeName: UIColor.red
       ]
 
       let attributedName = NSAttributedString(string: "Jack", attributes: nameAttributes)
 
-      let greetingAttributes: [String: AnyObject] = [
-         NSFontAttributeName: UIFont.systemFontOfSize(12),
-         NSForegroundColorAttributeName: UIColor.greenColor(),
-         NSUnderlineStyleAttributeName: 1
+      let greetingAttributes: [String: Any] = [
+         NSFontAttributeName: UIFont.systemFont(ofSize: 12),
+         NSForegroundColorAttributeName: UIColor.green,
+         NSUnderlineStyleAttributeName: 1 as Any
       ]
 
       let attributedGreeting = NSAttributedString(format: greetingFormat,
@@ -130,14 +131,15 @@ final class SwiftyFormatTests: XCTestCase {
 
       var range: NSRange = NSRange(location: 0, length: 0)
 
-      let realAttributes = attributedGreeting.attributesAtIndex(1, effectiveRange: &range)
+      let realAttributes = attributedGreeting.attributes(at: 1, effectiveRange: &range) as NSDictionary
 
       expect(realAttributes).to(equal(greetingAttributes as NSDictionary))
 
-      let realNameAttributes: [String: AnyObject] = attributedGreeting.attributesAtIndex(8, effectiveRange: &range)
+      let realNameAttributes = attributedGreeting.attributes(at: 8, effectiveRange: &range) as NSDictionary
 
       var expectedNameAttributes = nameAttributes
-      expectedNameAttributes[NSUnderlineStyleAttributeName] = 1
+      expectedNameAttributes[NSUnderlineStyleAttributeName] = 1 as Any
       expect(realNameAttributes).to(equal(expectedNameAttributes as NSDictionary))
    }
+#endif
 }

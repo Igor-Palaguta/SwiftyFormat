@@ -11,13 +11,26 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
+SwiftyFormat supports Swift 2 and Swift 3. Use 'swift-2.3' branch for Swift 2
+
 ## Installation
 
-SwiftyFormat is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+Cocoapods:
 
 ```ruby
 pod "SwiftyFormat"
+```
+
+For Swift 2.3
+
+```ruby
+pod "SwiftyFormat", :git => "https://github.com/Igor-Palaguta/SwiftyFormat.git", :branch => "swift-2.3"
+```
+
+Carthage:
+
+```
+github "Igor-Palaguta/SwiftyFormat"
 ```
 
 ## Author
