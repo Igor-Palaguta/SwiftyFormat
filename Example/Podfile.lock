@@ -1,0 +1,19 @@
+PODS:
+  - Nimble (3.2.0)
+  - SwiftyFormat (0.1.0)
+
+DEPENDENCIES:
+  - Nimble (~> 3.0)
+  - SwiftyFormat (from `../`)
+
+EXTERNAL SOURCES:
+  SwiftyFormat:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Nimble: 703854335d181df169bbca9c97117b5cf8c47c1d
+  SwiftyFormat: f28928ee64b43a2f2c765f10ddfb78279a85327b
+
+PODFILE CHECKSUM: eec5fbda1ae056cc28cba02b1a98f6be82523024
+
+COCOAPODS: 1.1.1
