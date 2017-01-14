@@ -15,43 +15,43 @@ SwiftyFormat has simple syntax, inside string you can add #{{key|default value|p
 ## Example
 
 ```
-  let format = "#{{user}} mentioned you in a comment. #{{comment}}"
-  let result = NSAttributedString(format: format, mapping: ["user": "Jack", "comment": "How are you Jill?"])
+let format = "#{{user}} mentioned you in a comment. #{{comment}}"
+let result = NSAttributedString(format: format, mapping: ["user": "Jack", "comment": "How are you Jill?"])
 ```
 
 
 Closure can be passed instead of dictionary. It is useful, when format can be changed, and not all parameters required for every format.
 
 ```
-  let result = NSAttributedString(format: someFormat) { key in
-     switch key {
-     case "name":
-        return NSAttributedString(string: "Jack", attributes: nameAttributes)
-     case "cookies":
-        return cookies
-     default:
-        return nil
-     }
-  }
+let result = NSAttributedString(format: someFormat) { key in
+   switch key {
+   case "name":
+      return NSAttributedString(string: "Jack", attributes: nameAttributes)
+   case "cookies":
+      return cookies
+   default:
+      return nil
+   }
+}
 ```
 
 
 You can also specify default value, prefix and suffix
 
 ```
-  let format ="#{{name|Your friend}} mentioned you in a comment#{{comment|| \"|\"}"
-  let result1 = NSAttributedString(format: format, mapping: [:])
-  //result1 == Your friend mentioned you in a comment
-  let result2 = NSAttributedString(format: format, mapping: ["name": "Jack", comment: "How are you?"])
-  //result2 == Jack mentioned you in a comment "How are you?"
+let format ="#{{name|Your friend}} mentioned you in a comment#{{comment|| \"|\"}"
+let result1 = NSAttributedString(format: format, mapping: [:])
+//result1 == Your friend mentioned you in a comment
+let result2 = NSAttributedString(format: format, mapping: ["name": "Jack", comment: "How are you?"])
+//result2 == Jack mentioned you in a comment "How are you?"
 ```
 
 
 Same format syntax can be used for String
 
 ```
-  let format = "#{{user}} mentioned you in a comment. #{{comment}}"
-  let result = String(format: format, mapping: ["user": "Jack", "comment": "How are you Jill?"])
+let format = "#{{user}} mentioned you in a comment. #{{comment}}"
+let result = String(format: format, mapping: ["user": "Jack", "comment": "How are you Jill?"])
 ```
 
 ## Requirements
