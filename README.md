@@ -58,13 +58,18 @@ SwiftyFormat supports Swift 5
 
 Cocoapods:
 ```
-pod "SwiftyFormat", :git => 'https://github.com/Alamofire/Alamofire.git'
+pod "SwiftyFormat", :git => 'https://github.com/Igor-Palaguta/SwiftyFormat.git'
 ```
 `
 
 Carthage:
 ```
 github "Igor-Palaguta/SwiftyFormat"
+```
+
+SPM:
+```
+.package(url: "https://github.com/Igor-Palaguta/SwiftyFormat.git", from: "0.3.0")
 ```
 
 ## Author
