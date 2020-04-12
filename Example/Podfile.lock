@@ -1,19 +1,23 @@
 PODS:
-  - Nimble (5.1.1)
-  - SwiftyFormat (0.1.0)
+  - Nimble (8.0.7)
+  - SwiftyFormat (0.2.0)
 
 DEPENDENCIES:
-  - Nimble (~> 5.0)
+  - Nimble
   - SwiftyFormat (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Nimble
 
 EXTERNAL SOURCES:
   SwiftyFormat:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
-  SwiftyFormat: 300acd0a59eafffb74cbb77024eba9dd73c424e3
+  Nimble: a73af6ecd4c9106f434f3d55fc54570be3739e0b
+  SwiftyFormat: fd8b9bf6c2c32b3c574b832f916816b49f2a2cb8
 
-PODFILE CHECKSUM: 610a95d5ca1316a1f001bd2302345aa63d96c5ad
+PODFILE CHECKSUM: 4f1c7e5b8f54b6074faa56b6702d917546616b81
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.9.1

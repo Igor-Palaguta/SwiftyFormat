@@ -1,14 +1,10 @@
 # SwiftyFormat
 
-[![CI Status](http://img.shields.io/travis/Igor Palaguta/SwiftyFormat.svg?style=flat)](https://travis-ci.org/Igor Palaguta/SwiftyFormat)
-[![Version](https://img.shields.io/cocoapods/v/SwiftyFormat.svg?style=flat)](http://cocoapods.org/pods/SwiftyFormat)
-[![License](https://img.shields.io/cocoapods/l/SwiftyFormat.svg?style=flat)](http://cocoapods.org/pods/SwiftyFormat)
-[![Platform](https://img.shields.io/cocoapods/p/SwiftyFormat.svg?style=flat)](http://cocoapods.org/pods/SwiftyFormat)
 
-SwiftyFormat has simple syntax, inside string you can add #{{key|default value|prefix|suffix}}.
+SwiftyFormat - string formatter library with simple format syntax #{{key|default value|prefix|suffix}}.
 
 1. *key* (required) is used for identifying parameter inside mapping
-2. *default value* (optional)  is used when when mapping returns nil for key
+2. *default value* (optional) this value is used when mapping returns nil for key
 3. *prefix* (optional) is added before value. Not added for default value
 4. *suffix* (optional) is added after value. Not added for default value
 
@@ -39,7 +35,7 @@ let result = NSAttributedString(format: someFormat) { key in
 You can also specify default value, prefix and suffix
 
 ```
-let format ="#{{name|Your friend}} mentioned you in a comment#{{comment|| \"|\"}"
+let format = #"#{{user}} mentioned you in a comment#{{comment|| "|"}}"#
 let result1 = NSAttributedString(format: format, mapping: [:])
 //result1 == Your friend mentioned you in a comment
 let result2 = NSAttributedString(format: format, mapping: ["name": "Jack", comment: "How are you?"])
@@ -56,13 +52,13 @@ let result = String(format: format, mapping: ["user": "Jack", "comment": "How ar
 
 ## Requirements
 
-SwiftyFormat supports Swift 2 and Swift 3. Use 'swift-2.3' branch for Swift 2
+SwiftyFormat supports Swift 5
 
 ## Installation
 
 Cocoapods:
 ```
-pod "SwiftyFormat"
+pod "SwiftyFormat", :git => 'https://github.com/Alamofire/Alamofire.git'
 ```
 `
 

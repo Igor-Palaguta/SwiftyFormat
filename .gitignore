@@ -25,4 +25,4 @@ Packages
 
 # Cocoapods
 Pods/
-Example/SwiftyFormat.xcworkspace
+*.xcworkspace
