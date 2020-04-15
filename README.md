@@ -1,4 +1,4 @@
-https://api.travis-ci.org/Igor-Palaguta/SwiftyFormat.svg?branch=master
+[![Build Status](https://travis-ci.org/Igor-Palaguta/SwiftyFormat.svg?branch=master)](https://travis-ci.org/Igor-Palaguta/SwiftyFormat)
 
 # SwiftyFormat
 
