@@ -1,3 +1,5 @@
+https://api.travis-ci.org/Igor-Palaguta/SwiftyFormat.svg?branch=master
+
 # SwiftyFormat
 
 
